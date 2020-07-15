@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  similarity:
+    container_name: similarity
+    restart: always
+    build: ./app
+    ports:
+      - 8000:8000
+    command: gunicorn -c gunicorn.py app:app 
+

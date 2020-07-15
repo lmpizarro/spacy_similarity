@@ -29,6 +29,10 @@ dictConfig({
 app = Flask(__name__)
 api = Api(app)
 
+@app.route('/')
+def testing():
+    return 'testing app'
+    
 
 app.logger.info('LOADING SPACY MODEL')
 nlp = spacy.load('en_core_web_sm')
@@ -42,10 +46,7 @@ def embed(input):
 app.logger.info('READY APP')
 
 
-@app.route('/')
-def testing():
-    return 'testing app'
-    
+
 parser_answer = reqparse.RequestParser()
 parser_answer.add_argument('sentences')
 
